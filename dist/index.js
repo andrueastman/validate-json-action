@@ -311,7 +311,7 @@ const ajv_formats_1 = __importDefault(__nccwpck_require__(567));
 class SchemaValidator {
     constructor() {
         this.schemaValidator = new ajv_1.default({ allErrors: true, loadSchema: this.loadSchema });
-        (0, ajv_formats_1.default)(this.schemaValidator);
+        (0, ajv_formats_1.default)(this.schemaValidator, { mode: 'fast', formats: ["iso-date-time"] });
     }
     instance() {
         return this.schemaValidator;

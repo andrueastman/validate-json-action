@@ -8,7 +8,7 @@ class SchemaValidator {
 
     constructor() {
         this.schemaValidator = new Ajv({ allErrors: true, loadSchema: this.loadSchema });
-        addFormats(this.schemaValidator)
+        addFormats(this.schemaValidator, { mode: 'fast',formats: ["iso-date-time"]})
     }
 
     public instance(): Ajv {
