@@ -29,7 +29,7 @@ async function run() {
         } else {
             core.info(`✅ All files were validated successfully.`);
         }
-    } catch (error) {
+    } catch (error: any) {
         core.setFailed(error.message);
     }
 }
