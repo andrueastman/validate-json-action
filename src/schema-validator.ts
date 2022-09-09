@@ -8,7 +8,10 @@ class SchemaValidator {
 
     constructor() {
         this.schemaValidator = new Ajv({ allErrors: true, loadSchema: this.loadSchema });
-        addFormats(this.schemaValidator, { mode: 'fast',formats: ["iso-date-time"]})
+        addFormats(this.schemaValidator)
+        this.schemaValidator.addFormat('custom-date-time-with-validation', function(dateTimeString) {
+            return !isNaN(Date.parse(dateTimeString));  // return true/false 
+        });
     }
 
     public instance(): Ajv {
